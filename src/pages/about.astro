@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Über mich";
+const happy = true;
+const finished = true;
+const goal = 3;
+
+const identity = {
+  firstName: "Akansel",
+  lastName: "Cengiz",
+  country: "Deutschland",
+  occupation: "Full Stack Web Developer",
+  hobbies: ["Fitnesstudio", "Filme", "Kochen"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Tailwind"];
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... und meine Astro/TailwindCSS Home Page!</h2>
+
+  <p>
+    Ich arbeite derzeit an meiner eigenen Home Page. Auf Astro bin ich zufällig
+    gestoßen.Da ich auch mal Tailwind ausprobieren wollte passt es natürlich
+    super. Nebenbei lerne ich auch sehr viel über Blogs.
+  </p>
+
+  <p>
+    Diese Seite wird aktualisiert, wenn ich weitere Teile des Tutorials
+    durchführe, also schau weiter zurück und schau, wie meine Reise verläuft!
+  </p>
+
+  {happy && <p>Mit Astro zu arbeiten macht mir sehr viel Spass!</p>}
+
+  {finished && <p>Ich habe dieses Tutorial abgeschlossen!</p>}
+
+  {
+    goal === 3 ? (
+      <p>Mein Ziel ist es in 2 Tagen fertig zu sein.</p>
+    ) : (
+      <p>Mein Ziel sind nicht 2 Tage.</p>
+    )
+  }
+
+  <p>Einige Fakten über mich:</p>
+  <ul>
+    <li>Mein Name ist {identity.firstName}{" "}{identity.lastName}.</li>
+    <li>
+      Ich lebe in {identity.country} und arbeite als {identity.occupation}.
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Zwei meiner Hobbies sind: {identity.hobbies[0]} und{" "}
+          {identity.hobbies[2]}
+        </li>
+      )
+    }
+  </ul>
+  <p>Meine Skills sind:</p><p></p><ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+  <h3>Die Lernreise geht stetig weiter.</h3>
+</BaseLayout>
