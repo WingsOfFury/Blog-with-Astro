@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: Mein zweiter Blog Post
 pubDate: 2023-11-01
 author: Akansel Cengiz
